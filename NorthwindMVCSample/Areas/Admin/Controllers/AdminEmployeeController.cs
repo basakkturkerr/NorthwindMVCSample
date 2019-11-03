@@ -26,5 +26,14 @@ namespace NorthwindMVCSample.Areas.Admin.Controllers
 
             return View(model);
         }
+
+        public ActionResult DeleteEmployee(int id)
+        {
+            Employee employee = db.Employees.FirstOrDefault(q => q.EmployeeID == id);
+            db.Employees.Remove(employee);
+            db.SaveChanges();
+
+            return RedirectToAction("index");
+        }
     }
 }
