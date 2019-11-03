@@ -43,7 +43,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -88,18 +96,156 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Content\css\bootstrap.css" />
+    <Content Include="Areas\Admin\Content\css\bootstrap.min.css" />
+    <Content Include="Areas\Admin\Content\css\plugins\dataTables\dataTables.bootstrap.css" />
+    <Content Include="Areas\Admin\Content\css\plugins\morris\morris-0.4.3.min.css" />
+    <Content Include="Areas\Admin\Content\css\plugins\social-buttons\social-buttons.css" />
+    <Content Include="Areas\Admin\Content\css\plugins\timeline\timeline.css" />
+    <Content Include="Areas\Admin\Content\css\sb-admin.css" />
+    <Content Include="Areas\Admin\Content\font-awesome\css\font-awesome.css" />
+    <Content Include="Areas\Admin\Content\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Areas\Admin\Content\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\Admin\Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\Admin\Content\js\bootstrap.js" />
+    <Content Include="Areas\Admin\Content\js\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Content\js\demo\dashboard-demo.js" />
+    <Content Include="Areas\Admin\Content\js\demo\flot-demo.js" />
+    <Content Include="Areas\Admin\Content\js\demo\morris-demo.js" />
+    <Content Include="Areas\Admin\Content\js\jquery-1.10.2.js" />
+    <Content Include="Areas\Admin\Content\js\plugins\dataTables\dataTables.bootstrap.js" />
+    <Content Include="Areas\Admin\Content\js\plugins\dataTables\jquery.dataTables.js" />
+    <Content Include="Areas\Admin\Content\js\plugins\flot\excanvas.min.js" />
+    <Content Include="Areas\Admin\Content\js\plugins\flot\jquery.flot.js" />
+    <Content Include="Areas\Admin\Content\js\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="Areas\Admin\Content\js\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="Areas\Admin\Content\js\plugins\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="Areas\Admin\Content\js\plugins\metisMenu\jquery.metisMenu.js" />
+    <Content Include="Areas\Admin\Content\js\plugins\morris\morris.js" />
+    <Content Include="Areas\Admin\Content\js\plugins\morris\raphael-2.1.0.min.js" />
+    <Content Include="Areas\Admin\Content\js\sb-admin.js" />
     <Content Include="Global.asax" />
+    <Content Include="Models\ORM\NorthwindEntityDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NorthwindEntityDataModel.edmx</DependentUpon>
+      <LastGenOutput>NorthwindEntityDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ORM\NorthwindEntityDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NorthwindEntityDataModel.edmx</DependentUpon>
+      <LastGenOutput>NorthwindEntityDataModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminCategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ORM\Category.cs">
+      <DependentUpon>NorthwindEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORM\Customer.cs">
+      <DependentUpon>NorthwindEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORM\CustomerDemographic.cs">
+      <DependentUpon>NorthwindEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORM\Employee.cs">
+      <DependentUpon>NorthwindEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORM\NorthwindEntityDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NorthwindEntityDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORM\NorthwindEntityDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NorthwindEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORM\NorthwindEntityDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NorthwindEntityDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORM\Order.cs">
+      <DependentUpon>NorthwindEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORM\Order_Detail.cs">
+      <DependentUpon>NorthwindEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORM\Product.cs">
+      <DependentUpon>NorthwindEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORM\Region.cs">
+      <DependentUpon>NorthwindEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORM\Shipper.cs">
+      <DependentUpon>NorthwindEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORM\Supplier.cs">
+      <DependentUpon>NorthwindEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORM\sysdiagram.cs">
+      <DependentUpon>NorthwindEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORM\Territory.cs">
+      <DependentUpon>NorthwindEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VM\CategoryVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
+    <EntityDeploy Include="Models\ORM\NorthwindEntityDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NorthwindEntityDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ORM\NorthwindEntityDataModel.edmx.diagram">
+      <DependentUpon>NorthwindEntityDataModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Content\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Admin\Content\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\Admin\Content\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\Admin\Content\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\core.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\fixed-width.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\font-awesome.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\icons.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\larger.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\list.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\mixins.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\path.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\spinning.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\stacked.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\variables.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\_core.scss" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\_icons.scss" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\_larger.scss" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\_list.scss" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\_mixins.scss" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\_path.scss" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\_spinning.scss" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\_stacked.scss" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\_variables.scss" />
+    <Content Include="Areas\Admin\Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\Admin\Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\Admin\Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\Admin\Views\Shared\SiteLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHome\About.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminCategory\Index.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -110,8 +256,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
