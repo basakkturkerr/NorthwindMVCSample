@@ -35,5 +35,18 @@ namespace NorthwindMVCSample.Areas.Admin.Controllers
 
             return RedirectToAction("index");
         }
+
+        public ActionResult AddEmployee()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddEmployee(Employee employee)
+        {
+            db.Employees.Add(employee);
+            db.SaveChanges();
+            return RedirectToAction("Index", "AdminEmployee");
+        }
     }
 }

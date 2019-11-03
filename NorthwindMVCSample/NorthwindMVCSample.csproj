@@ -249,6 +249,7 @@
     <Content Include="Areas\Admin\Views\AdminHome\About.cshtml" />
     <Content Include="Areas\Admin\Views\AdminCategory\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminEmployee\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminEmployee\AddEmployee.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

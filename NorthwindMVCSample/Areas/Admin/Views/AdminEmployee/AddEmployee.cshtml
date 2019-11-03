@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/SiteLayout.cshtml";
+}
+
+@model NorthwindMVCSample.Models.ORM.Employee
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Employee Listesi</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Employee Listesi
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <form action="~/admin/adminemployee/addemployee/" method="post">
+                        <div class="form-group">
+                            <label>firstname</label>
+                            <input type="text" class="form-control" name="firstname" value="" />
+                        </div>
+                        <div class="form-group">
+                            <label>lastname</label>
+                            <input type="text" class="form-control" name="lastname" value="" />
+                        </div>
+                        <div class="form-group">
+                            <label>city</label>
+                            <input type="text" class="form-control" name="city" value="" />
+                        </div>
+                        <div class="form-group">
+                            <label>region</label>
+                            <input type="text" class="form-control" name="region" value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-warning" />
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+
+
+
