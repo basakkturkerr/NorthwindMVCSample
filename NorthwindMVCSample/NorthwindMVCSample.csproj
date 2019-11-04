@@ -146,6 +146,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ORM\AdminUser.cs">
+      <DependentUpon>NorthwindEntityDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ORM\Category.cs">
       <DependentUpon>NorthwindEntityDataModel.tt</DependentUpon>
     </Compile>

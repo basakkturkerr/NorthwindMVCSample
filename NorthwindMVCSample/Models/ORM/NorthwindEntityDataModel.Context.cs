@@ -37,5 +37,6 @@ namespace NorthwindMVCSample.Models.ORM
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Territory> Territories { get; set; }
+        public virtual DbSet<AdminUser> AdminUsers { get; set; }
     }
 }
