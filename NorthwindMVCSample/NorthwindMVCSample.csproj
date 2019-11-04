@@ -143,6 +143,7 @@
     <Compile Include="Areas\Admin\Controllers\AdminCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminEmployeeController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminUserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -200,6 +201,7 @@
     <Compile Include="Models\ORM\Territory.cs">
       <DependentUpon>NorthwindEntityDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\VM\AdminUserVM.cs" />
     <Compile Include="Models\VM\CategoryVM.cs" />
     <Compile Include="Models\VM\EmployeeVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -253,6 +255,9 @@
     <Content Include="Areas\Admin\Views\AdminCategory\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminEmployee\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminEmployee\AddEmployee.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminUser\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminUser\AddAdmin.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminUser\AdminDetail.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
