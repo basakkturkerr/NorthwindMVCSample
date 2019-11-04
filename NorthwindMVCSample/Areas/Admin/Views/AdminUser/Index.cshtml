@@ -32,20 +32,22 @@
                                 <th>Password</th>
                                 <th>LastLoginDate</th>
                                 <th>Process</th>
+                                <th>Detail</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in Model)
                             {
-                                <tr>
-                                    <td>@item.ID</td>
-                                    <td>@item.Name</td>
-                                    <td>@item.Surname</td>
-                                    <td>@item.EMail</td>
-                                    <td>@item.Password</td>
-                                    <td>@item.LastLoginDate</td>
-                                    <td><a href="/Admin/AdminUser/deleteadmin/@item.ID">Sil</a></td>
-                                </tr>
+                            <tr>
+                                <td>@item.ID</td>
+                                <td>@item.Name</td>
+                                <td>@item.Surname</td>
+                                <td>@item.EMail</td>
+                                <td>@item.Password</td>
+                                <td>@item.LastLoginDate</td>
+                                <td><a href="/Admin/AdminUser/deleteadmin/@item.ID">Delete</a></td>
+                                <td><a href="/Admin/AdminUser/Admindetail/@item.ID">Detail</a></td>
+                            </tr>
                             }
 
                         </tbody>

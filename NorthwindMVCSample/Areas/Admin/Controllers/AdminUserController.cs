@@ -48,5 +48,10 @@ namespace NorthwindMVCSample.Areas.Admin.Controllers
             db.SaveChanges();
             return RedirectToAction("index");
         }
+        public ActionResult AdminDetail (int id)
+        {
+            AdminUser admin = db.AdminUsers.FirstOrDefault(q => q.id == id);
+            return View(admin);
+        }
     }
 }
